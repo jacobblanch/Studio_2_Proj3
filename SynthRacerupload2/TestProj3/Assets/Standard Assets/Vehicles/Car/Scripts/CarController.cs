@@ -296,7 +296,7 @@ namespace UnityStandardAssets.Vehicles.Car
                     m_WheelEffects[i].StopAudio();
                 }
                 // end the trail generation
-                m_WheelEffects[i].EndSkidTrail();
+                //m_WheelEffects[i].EndSkidTrail();
             }
         }
 

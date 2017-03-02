@@ -4,47 +4,62 @@ using UnityEngine;
 
 public class worldrotation : MonoBehaviour {
 
-    float initialdroppoint = 100;
-    float ypos;
+    public static worldrotation Instance;
 
-    bool canrotate = false;
 
-    float spinspeed = 10;
+    public GameObject floor;
 
-	// Use this for initialization
+    private float initialdroppoint = -400;
+    private float floorypos;
+
+    private bool canrotate = false;
+
+
+    public Vector3 worldrot;
+
+
+    private float spinspeed = 7f;
+
+
+
+
 	void Start ()
     {
-        ypos = this.transform.position.y;
+        Instance = this;
+        floorypos = floor.transform.position.y;
 	}
 	
-	// Update is called once per frame
+
+
+
 	void Update ()
     {
 
-      if ( ypos >= initialdroppoint)
+      if (floorypos >= initialdroppoint)
         {
-            ypos -= Time.deltaTime * 30;
+            floorypos -= Time.deltaTime * 30;
             canrotate = false;
+            floor.transform.position = new Vector3(transform.position.x, floorypos, transform.position.z);
         }
 
        else
         {
             canrotate = true;
+            Rotate();
         }
 
         if (canrotate)
         {
-            Rotate();
+            
         }
 
-        transform.position = new Vector3(transform.position.x, ypos, transform.position.z);
+       
 		
 	}
 
-
     void Rotate()
     {
-        transform.Rotate(spinspeed /2 * Time.deltaTime, spinspeed * Time.deltaTime, 0);
+        floor.transform.RotateAround(this.transform.position, worldrot,  spinspeed * Time.deltaTime);
     }
 
 

@@ -20,7 +20,7 @@ namespace UnityStandardAssets.Vehicles.Car
 
         private void Start()
         {
-            skidParticles = transform.root.GetComponentInChildren<ParticleSystem>();
+           // skidParticles = transform.root.GetComponentInChildren<ParticleSystem>();
 
             if (skidParticles == null)
             {
@@ -35,20 +35,20 @@ namespace UnityStandardAssets.Vehicles.Car
             m_AudioSource = GetComponent<AudioSource>();
             PlayingAudio = false;
 
-            if (skidTrailsDetachedParent == null)
-            {
-                skidTrailsDetachedParent = new GameObject("Skid Trails - Detached").transform;
-            }
+            //if (skidTrailsDetachedParent == null)
+            //{
+            //    skidTrailsDetachedParent = new GameObject("Skid Trails - Detached").transform;
+            //}
         }
 
 
         public void EmitTyreSmoke()
         {
-            skidParticles.transform.position = transform.position - transform.up*m_WheelCollider.radius;
-            skidParticles.Emit(1);
+          //  skidParticles.transform.position = transform.position - transform.up*m_WheelCollider.radius;
+           // skidParticles.Emit(1);
             if (!skidding)
             {
-                StartCoroutine(StartSkidTrail());
+                //StartCoroutine(StartSkidTrail());
             }
         }
 
@@ -67,28 +67,28 @@ namespace UnityStandardAssets.Vehicles.Car
         }
 
 
-        public IEnumerator StartSkidTrail()
-        {
-            skidding = true;
-            m_SkidTrail = Instantiate(SkidTrailPrefab);
-            while (m_SkidTrail == null)
-            {
-                yield return null;
-            }
-            m_SkidTrail.parent = transform;
-            m_SkidTrail.localPosition = -Vector3.up*m_WheelCollider.radius;
-        }
+        //public IEnumerator StartSkidTrail()
+        //{
+        //    skidding = true;
+        //    m_SkidTrail = Instantiate(SkidTrailPrefab);
+        //    while (m_SkidTrail == null)
+        //    {
+        //        yield return null;
+        //    }
+        //    m_SkidTrail.parent = transform;
+        //    m_SkidTrail.localPosition = -Vector3.up*m_WheelCollider.radius;
+        //}
 
 
-        public void EndSkidTrail()
-        {
-            if (!skidding)
-            {
-                return;
-            }
-            skidding = false;
-            m_SkidTrail.parent = skidTrailsDetachedParent;
-            Destroy(m_SkidTrail.gameObject, 10);
-        }
+        //public void EndSkidTrail()
+        //{
+        //    if (!skidding)
+        //    {
+        //        return;
+        //    }
+        //    skidding = false;
+        //    m_SkidTrail.parent = skidTrailsDetachedParent;
+        //    Destroy(m_SkidTrail.gameObject, 10);
+        //}
     }
 }
