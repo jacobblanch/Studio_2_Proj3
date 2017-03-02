@@ -13,6 +13,7 @@ public class independantrotation : MonoBehaviour {
 
     public Vector3 indrot;
 
+    public bool startrotation = false;
     void Start ()
     {
         Instance = this;
@@ -23,8 +24,8 @@ public class independantrotation : MonoBehaviour {
 
 	void Update ()
     {
-
-        rotateindividuals();
+        if (startrotation)
+        { rotateindividuals(); }
 		
 	}
 

@@ -15,7 +15,13 @@ public class rotationmanager : MonoBehaviour {
     private float Wchangetimer;
     private float Wchangebuffer = 25;
 
-	void Start ()
+
+
+    private float Dropprestart = 8.9f;
+    private float rotstart = 17.8f;
+    private float Indprestart = 4.4f;
+
+    void Start ()
     {
         Changeindrot();
 
@@ -28,6 +34,24 @@ public class rotationmanager : MonoBehaviour {
 	
 	void Update ()
     {
+
+        Dropprestart -= Time.deltaTime;
+        rotstart -= Time.deltaTime;
+        Indprestart -= Time.deltaTime;
+        if (Dropprestart <= 0)
+        {
+            worldrotation.Instance.dropfloor = true;
+        }
+        if (rotstart <= 0)
+        {
+            worldrotation.Instance.startrotation = true;
+        }
+
+        if (Indprestart <= 0)
+        {
+            independantrotation.Instance.startrotation = true;
+        }
+
         indchangetimer -= Time.deltaTime;
         Wchangetimer -= Time.deltaTime;
 

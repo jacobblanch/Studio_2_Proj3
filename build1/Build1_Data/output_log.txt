@@ -1,0 +1,78 @@
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 980 (ID=0x13c0)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   21.21.13.7653
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.165 seconds
+Platform assembly: C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\amcclenaghan\Documents\Studio_2_Proj3\SynthRacerupload2\TestProj3\Build1_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
+<RI> Initialized touch support.
+UnloadTime: 1.077184 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 331c -> priority: 1 
+  Thread -> id: 3f40 -> priority: 1 
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 4.071665 ms
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 400.
+Total: 0.374084 ms (FindLiveObjects: 0.015023 ms CreateObjectMapping: 0.011417 ms MarkObjects: 0.206122 ms  DeleteObjects: 0.141220 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.304976 ms
+(-0.3, 0.7, 0.7, 0.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at rotationmanager.Changeindrot () [0x00000] in <filename unknown>:0 
+  at rotationmanager.Start () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+ no particle system found on car to generate smoke particles
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ no particle system found on car to generate smoke particles
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ no particle system found on car to generate smoke particles
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ no particle system found on car to generate smoke particles
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.6, 0.5, -0.6, 0.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+(0.0, -0.9, 0.2, 0.4)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1829.
+Total: 0.589822 ms (FindLiveObjects: 0.085032 ms CreateObjectMapping: 0.087436 ms MarkObjects: 0.403530 ms  DeleteObjects: 0.013821 ms)
+
