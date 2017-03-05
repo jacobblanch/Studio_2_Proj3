@@ -22,8 +22,7 @@ public class fallcheck : MonoBehaviour {
         Player.GetComponent<Rigidbody>().velocity = new Vector3( 0,0,0);
         //StopAllCoroutines();
         //StartCoroutine(playerLerp(Player.transform.position, Player.transform.rotation));
-    
-    } 
+    }
 
     void OnCollisionEnter(Collision other)
     {
