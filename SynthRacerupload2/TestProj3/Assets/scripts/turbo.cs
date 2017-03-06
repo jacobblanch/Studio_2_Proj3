@@ -9,6 +9,11 @@ public class turbo : MonoBehaviour {
     public GameObject leftbraketrail;
     public GameObject rightbraketrail;
 
+    public GameObject camera;
+
+    private float Colourshiftvalue;
+    private float GLitchIntensity;
+
     void Start ()
     {
 		

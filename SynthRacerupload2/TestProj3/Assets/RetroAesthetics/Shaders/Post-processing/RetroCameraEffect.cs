@@ -7,7 +7,7 @@ namespace RetroAesthetics {
     //[ExecuteInEditMode]
     [RequireComponent(typeof(Camera))]
     #if UNITY_5_4_OR_NEWER && !RETRO_SCENE_VIEW_OFF
-       // [ImageEffectAllowedInSceneView]
+        //[ImageEffectAllowedInSceneView]
     #endif
 
     public class RetroCameraEffect : MonoBehaviour
