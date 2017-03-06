@@ -5,19 +5,22 @@ using UnityEngine;
 public class turbo : MonoBehaviour {
 
     public GameObject turbopoint;
-    public GameObject warpeffects;
+   // public GameObject warpeffects;
     public GameObject leftbraketrail;
     public GameObject rightbraketrail;
 
-    public GameObject camera;
+    public GameObject cameraMain;
 
     private float Colourshiftvalue;
     private float GLitchIntensity;
 
+    private bool TURBOBOOL;
+
     void Start ()
     {
-		
-	}
+        rightbraketrail.SetActive(false);
+        leftbraketrail.SetActive(false);
+    }
 	
 	void Update ()
     {
@@ -33,6 +36,36 @@ public class turbo : MonoBehaviour {
         {
             Application.Quit();
         }
+
+
+
+        if (TURBOBOOL)
+        {
+            if (cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity <= 1.5f)
+            {
+                cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity += 0.1f;
+            }
+
+
+            if (cameraMain.GetComponent< RetroAesthetics.RetroCameraEffect>().chromaticAberration <= 20)
+            {
+                cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration += 2;
+            }
+        }
+
+        else
+        {
+            if (cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity >= 0.5f)
+            {
+                cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity -= 0.1f;
+            }
+
+
+            if (cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration >= 5)
+            {
+                cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration -= 2;
+            }
+        }
     }
 
 
@@ -40,13 +73,18 @@ public class turbo : MonoBehaviour {
     {
         rightbraketrail.SetActive(true);
         leftbraketrail.SetActive(true);
-        warpeffects.SetActive(true);
+        //  warpeffects.SetActive(true);
+        TURBOBOOL = true;
+        
     }
 
     void NomoreTURBO()
     {
+        TURBOBOOL = false;
         rightbraketrail.SetActive(false);
         leftbraketrail.SetActive(false);
-        warpeffects.SetActive(false);
+      //  warpeffects.SetActive(false);
+      //  cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity = 0.5f;
+      //  cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration = 5;
     }
 }

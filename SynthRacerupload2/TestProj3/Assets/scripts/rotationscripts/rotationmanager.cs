@@ -20,6 +20,7 @@ public class rotationmanager : MonoBehaviour {
     private float Dropprestart = 8.9f;
     private float rotstart = 17.8f;
     private float Indprestart = 4.4f;
+    
 
     void Start ()
     {
@@ -38,6 +39,7 @@ public class rotationmanager : MonoBehaviour {
         Dropprestart -= Time.deltaTime;
         rotstart -= Time.deltaTime;
         Indprestart -= Time.deltaTime;
+      
         if (Dropprestart <= 0)
         {
             worldrotation.Instance.dropfloor = true;
@@ -51,6 +53,8 @@ public class rotationmanager : MonoBehaviour {
         {
             independantrotation.Instance.startrotation = true;
         }
+
+       
 
         indchangetimer -= Time.deltaTime;
         Wchangetimer -= Time.deltaTime;
@@ -73,7 +77,7 @@ public class rotationmanager : MonoBehaviour {
     void Changeindrot()
     {
         _indrotation = Random.rotation;
-        Debug.Log(_indrotation);
+     //   Debug.Log(_indrotation);
         independantrotation.Instance.indrot = _indrotation.eulerAngles;
     }
 
@@ -82,7 +86,7 @@ public class rotationmanager : MonoBehaviour {
     {
        
         _worldrotation = Random.rotation;
-        Debug.Log(_worldrotation);
+       // Debug.Log(_worldrotation);
         worldrotation.Instance.worldrot = _worldrotation.eulerAngles;
 
     }

@@ -10,7 +10,7 @@ public class worldrotation : MonoBehaviour {
     public GameObject floorcont;
     public GameObject skycont;
 
-    private float initialdroppoint = -400;
+    private float initialdroppoint = -500;
     private float floorypos;
 
     private bool canrotate = false;
