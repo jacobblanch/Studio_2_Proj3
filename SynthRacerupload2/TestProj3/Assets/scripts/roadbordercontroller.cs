@@ -5,93 +5,48 @@ using UnityEngine;
 public class roadbordercontroller : MonoBehaviour {
 
     public GameObject player;
+    private float Ytop;
+    private float Ybot;
 
-    private float PDist;
-
-    private float disttorise = 70;
-
-    private float wheretodropto = -50;
-
-    private float RiseRate = 1f;
-
-    private Vector3 bottom;
-    private Vector3 top;
-
-    private bool toldtofall;
-    private bool toldtorise;
-
-    void Start ()
+    private void Start()
     {
-        bottom = new Vector3(transform.position.x, wheretodropto, transform.position.z);
-        top = new Vector3(transform.position.x, 0.5f, transform.position.z);
-
+        Ytop = transform.position.y;
+        Ybot = Ytop - 30;
+        Debug.Log(Ytop);
+        Debug.Log(Ybot);
     }
 
-
-    void Update ()
+    private void Update()
     {
-		PDist = Vector3.Distance(player.transform.position, transform.position);
-
-
-        if (PDist >= disttorise)
+        float PDist = Vector3.Distance(this.transform.position, player.transform.position);
+        if (PDist <= 65)
         {
-            Fall();
-            toldtofall = true;
-            toldtorise = false;
+            
+           if (transform.localScale != new Vector3(8,2,20))
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(8, 2, 20), 3 * Time.deltaTime);
+            }
+
+            if (transform.position.y < Ytop)
+               
+            transform.Translate(Vector3.up * 0.6f);
         }
 
-        if (PDist <= disttorise)
+        else
         {
-            Rise();
-            toldtorise = true;
-            toldtofall = false;
+            transform.localScale = new Vector3(0, 0, 0);
+
+            if (transform.position.y > Ybot)
+            transform.Translate(-Vector3.up * 1);
         }
     }
 
 
 
 
-    void Rise()
-    {
-        if (!toldtorise)
-        {
-            StopAllCoroutines();
-            StartCoroutine("platformrise");
-        }
-       
-    }
 
 
 
 
-    void Fall()
-    {
-        if (!toldtofall)
-        {
-        StopAllCoroutines();
-        StartCoroutine("platformfall");
-        }
-    }
-
-
-
-    IEnumerator platformrise()
-    {
-        
-        if (transform.position.y >= wheretodropto)
-        {
-            this.transform.position = Vector3.Lerp(top, bottom, RiseRate * Time.deltaTime);
-        }
-        yield return null;
-    }
-
-    IEnumerator platformfall()
-    {
-        if (transform.position.y <= 0.5)
-        {
-            this.transform.position = Vector3.Lerp(bottom, top, RiseRate * Time.deltaTime);
-
-        }
-        yield return null;
-    }
+    
 }
