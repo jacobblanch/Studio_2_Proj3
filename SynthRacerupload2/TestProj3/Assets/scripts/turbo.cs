@@ -41,13 +41,13 @@ public class turbo : MonoBehaviour {
 
         if (TURBOBOOL)
         {
-            if (cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity <= 1.5f)
+            if (cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity <= 1.2f)
             {
                 cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity += 0.1f;
             }
 
 
-            if (cameraMain.GetComponent< RetroAesthetics.RetroCameraEffect>().chromaticAberration <= 20)
+            if (cameraMain.GetComponent< RetroAesthetics.RetroCameraEffect>().chromaticAberration <= 17)
             {
                 cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration += 2;
             }
