@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class turbo : MonoBehaviour {
 
-    public GameObject turbopoint;
+   // public GameObject turbopoint;
    // public GameObject warpeffects;
-    public GameObject leftbraketrail;
-    public GameObject rightbraketrail;
+    //public GameObject leftbraketrail;
+    //public GameObject rightbraketrail;
 
     public GameObject cameraMain;
 
@@ -18,17 +18,17 @@ public class turbo : MonoBehaviour {
 
     void Start ()
     {
-        rightbraketrail.SetActive(false);
-        leftbraketrail.SetActive(false);
+        //rightbraketrail.SetActive(false);
+        //leftbraketrail.SetActive(false);
     }
 	
 	void Update ()
     {
-		if (Input.GetKeyDown(KeyCode.Q))
+		if (Input.GetKeyDown(KeyCode.W))
         {
             TURBO();
         }
-        if (Input.GetKeyUp(KeyCode.Q))
+        if (Input.GetKeyUp(KeyCode.W))
         {
             NomoreTURBO();
         }
@@ -71,8 +71,8 @@ public class turbo : MonoBehaviour {
 
     void TURBO()
     {
-        rightbraketrail.SetActive(true);
-        leftbraketrail.SetActive(true);
+        //rightbraketrail.SetActive(true);
+        //leftbraketrail.SetActive(true);
         //  warpeffects.SetActive(true);
         TURBOBOOL = true;
         
@@ -81,8 +81,8 @@ public class turbo : MonoBehaviour {
     void NomoreTURBO()
     {
         TURBOBOOL = false;
-        rightbraketrail.SetActive(false);
-        leftbraketrail.SetActive(false);
+        //rightbraketrail.SetActive(false);
+        //leftbraketrail.SetActive(false);
       //  warpeffects.SetActive(false);
       //  cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity = 0.5f;
       //  cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration = 5;
