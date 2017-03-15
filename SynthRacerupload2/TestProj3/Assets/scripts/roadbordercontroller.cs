@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class roadbordercontroller : MonoBehaviour {
 
-    public GameObject player;
+    private GameObject player;
     private float Ytop;
     private float Ybot;
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         Ytop = transform.position.y;
         Ybot = Ytop - 30;
         Debug.Log(Ytop);
