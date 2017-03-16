@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class fallcheck : MonoBehaviour {
 
-    public GameObject Player;
+   // public GameObject Player;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +15,7 @@ public class fallcheck : MonoBehaviour {
 	void Update () {
 		
 	}
-    private void MakePlayerReset( )
+    private void MakePlayerReset(GameObject Player )
     {
         Player.transform.position = new Vector3(0, 0, 0);
         Player.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -24,26 +24,26 @@ public class fallcheck : MonoBehaviour {
         //StartCoroutine(playerLerp(Player.transform.position, Player.transform.rotation));
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.collider.transform.tag == "Player")
+        if (other.transform.tag == "Player")
         {
-            MakePlayerReset();
+            MakePlayerReset(other.gameObject);
         }
     }
 
 
-    IEnumerator playerLerp(Vector3 playerpos, Quaternion playerrot)
+    IEnumerator playerLerp(Vector3 playerpos, Quaternion playerrot, GameObject _player)
     {
         Vector3 playerend = new Vector3(0, 1, 0);
         Quaternion rotend = Quaternion.Euler(0, 0, 0);
         while (playerpos != playerend)
         {
-            Player.transform.position = Vector3.Lerp(playerpos, playerend, 1 * Time.deltaTime);
+            _player.transform.position = Vector3.Lerp(playerpos, playerend, 1 * Time.deltaTime);
 
             while (playerrot != rotend)
             {
-                Player.transform.rotation = Quaternion.Lerp(playerrot, rotend, 1 * Time.deltaTime);
+                _player.transform.rotation = Quaternion.Lerp(playerrot, rotend, 1 * Time.deltaTime);
             }
         }
 

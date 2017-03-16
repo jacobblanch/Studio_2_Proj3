@@ -23,7 +23,7 @@ public class timer : MonoBehaviour {
 
 
         //update the label value
-        timerLabel.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
+       // timerLabel.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, fraction);
     }
 
     private void OnCollisionEnter(Collision collision)

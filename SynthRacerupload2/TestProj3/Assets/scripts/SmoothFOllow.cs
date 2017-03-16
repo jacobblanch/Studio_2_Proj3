@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SmoothFOllow : MonoBehaviour
 {
-    
         public Transform target;
         public float distance = 3.0f;
         public float height = 3.0f;
@@ -13,7 +12,12 @@ public class SmoothFOllow : MonoBehaviour
         public bool followBehind = true;
         public float rotationDamping = 10.0f;
 
-        void Update()
+    private void Start()
+    {
+    }
+
+
+    void Update()
         {
             Vector3 wantedPosition;
             if (followBehind)
@@ -28,7 +32,7 @@ public class SmoothFOllow : MonoBehaviour
                 Quaternion wantedRotation = Quaternion.LookRotation(target.position - transform.position, target.up);
                 transform.rotation = Quaternion.Slerp(transform.rotation, wantedRotation, Time.deltaTime * rotationDamping);
             }
-            else transform.LookAt(target, target.up);
-        }
+        transform.LookAt(target, target.up);
+    }
     }
 

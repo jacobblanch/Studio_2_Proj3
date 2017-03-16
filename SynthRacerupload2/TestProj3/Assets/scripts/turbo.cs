@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class turbo : MonoBehaviour {
 
-   // public GameObject turbopoint;
-   // public GameObject warpeffects;
+    //public GameObject turbopoint;
+    //public GameObject warpeffects;
     //public GameObject leftbraketrail;
     //public GameObject rightbraketrail;
 
     public GameObject cameraMain;
+    public GameObject playeranim;
+    public GameObject playerdriven;
+
+
 
     private float Colourshiftvalue;
     private float GLitchIntensity;
@@ -24,17 +28,19 @@ public class turbo : MonoBehaviour {
 	
 	void Update ()
     {
-		if (Input.GetKeyDown(KeyCode.W))
-        {
-            TURBO();
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            NomoreTURBO();
-        }
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                TURBO();
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                NomoreTURBO();
+            }
+        
+           
         if (Input.GetKey(KeyCode.Escape))
         {
-            Application.Quit();
+            Application.LoadLevel("menu");
         }
 
 
@@ -43,21 +49,24 @@ public class turbo : MonoBehaviour {
         {
             if (cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity <= 1.2f)
             {
-                cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity += 0.1f;
+                cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity += 0.05f;
             }
 
 
-            if (cameraMain.GetComponent< RetroAesthetics.RetroCameraEffect>().chromaticAberration <= 17)
+            if (cameraMain.GetComponent< RetroAesthetics.RetroCameraEffect>().chromaticAberration <= 19)
             {
-                cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration += 2;
+                cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration += 1;
             }
+
+
+
         }
 
         else
         {
             if (cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity >= 0.5f)
             {
-                cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity -= 0.1f;
+                cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity -= 0.08f;
             }
 
 

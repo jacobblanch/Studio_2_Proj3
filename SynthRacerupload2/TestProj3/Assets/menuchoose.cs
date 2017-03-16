@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class menuchoose : MonoBehaviour {
 
-	// Use this for initialization
+   
+    
+    // Use this for initialization
 	void Start () {
 		
 	}
@@ -19,11 +21,13 @@ public class menuchoose : MonoBehaviour {
     public void ChooseDrive()
     {
         PlayerPrefs.SetInt("MenuCHoice", 1);
+        GetComponent<RetroAesthetics.Demos.MenuScripts>().StartLevel();
     }
 
 
     public void ChooseCruise()
     {
         PlayerPrefs.SetInt("MenuCHoice", 2);
+        GetComponent<RetroAesthetics.Demos.MenuScripts>().StartLevel();
     }
 }
