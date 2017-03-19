@@ -5,20 +5,27 @@ using UnityEngine;
 public class DistortObject : BeatReceiver {
 
     Material mat;
-    public float effectLength = 0.5f;
-    public float objectSize = 1;
+    [Tooltip("Time (in seconds) that the object will distort for.")]
+    public float effectLength = 0.2f;
+    
     float beatTimer;
 
     [Header("Distortion Effect")]
+    [Tooltip("How far the object will distort.")]
     public float distortStrength = 10;
     float distortSpeed = 0.1f;
+    [Tooltip("How many beats happen after a distortion before it will distort again.")]
     public int beatsBetweenDistort = 0;
     int distortBeatTimer = 0;
     float distortZone = 0.8f;
     bool distorting = false;
 
     [Header("Distortion Pulse")]
+    [Tooltip("How far the pulse will distort the object (hard capped in code).")]
     public float pulseStrength = 2;
+    [Tooltip("How quickly the pulse moves down the object.")]
+    public float pulseSpeed = 1;
+    [Tooltip("How many beats happen after a pulse before it will pulse again.")]
     public int beatsBetweenPulse = 1;
     int pulseBeatTimer = 0;
     bool pulsing = false;
@@ -50,7 +57,7 @@ public class DistortObject : BeatReceiver {
 
         if (pulsing)
         {
-            pulseTimer -= (effectLength * objectSize) * Time.deltaTime;
+            pulseTimer -= (effectLength * pulseSpeed) * Time.deltaTime;
             mat.SetFloat("_PulseTime", Mathf.Cos(effectLength - pulseTimer));
             //print("TIME: " + Mathf.Cos(pulseTimer));
 

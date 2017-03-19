@@ -61,7 +61,7 @@
 						multi = -1;
 					}
 
-					v.vertex.x += abs((_PulseTime / v.vertex.y) * sin(v.vertex.y - _PulseTime)) * multi * _PulseStrength;
+					v.vertex.x += clamp(abs((_PulseTime / v.vertex.y) * sin(v.vertex.y - _PulseTime)) * multi * _PulseStrength, -2, 2);
 				}
 			}
 		}
