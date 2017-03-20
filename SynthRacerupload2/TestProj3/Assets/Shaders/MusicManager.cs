@@ -46,7 +46,7 @@ public class MusicManager : MonoBehaviour {
             }
         }
 
-        audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
+        audioSource.GetSpectrumData(spectrum, 0, FFTWindow.Hanning);
 
         if(spectrum[0] > 0.5f && !hasBeat)
         {

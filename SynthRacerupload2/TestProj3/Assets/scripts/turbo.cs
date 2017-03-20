@@ -82,7 +82,11 @@ public class turbo : MonoBehaviour {
                 {
                     DriveCar.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_FullTorqueOverAllWheels += 500;
                 }
-
+                if (DriveCar.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_Topspeed <= 180)
+                {
+                    DriveCar.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_Topspeed += 5;
+                }
+                
 
 
             }
@@ -107,6 +111,11 @@ public class turbo : MonoBehaviour {
                 if (DriveCar.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_FullTorqueOverAllWheels >= 10000)
                 {
                     DriveCar.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_FullTorqueOverAllWheels -= 500;
+                }
+
+                if (DriveCar.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_Topspeed >= 150)
+                {
+                    DriveCar.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_Topspeed -= 5;
                 }
 
             }
@@ -172,7 +181,7 @@ public class turbo : MonoBehaviour {
                     AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxForce -= 1;
                 }
 
-                if (AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxSpeed <= 435)
+                if (AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxSpeed >= 35)
                 {
                     AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxSpeed -= 1;
                 }
