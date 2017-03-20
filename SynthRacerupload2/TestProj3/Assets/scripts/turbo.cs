@@ -76,7 +76,12 @@ public class turbo : MonoBehaviour {
                     drivecam.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration += 1;
                 }
 
+                //Speed Effects
 
+                if (DriveCar.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_FullTorqueOverAllWheels <= 15000)
+                {
+                    DriveCar.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_FullTorqueOverAllWheels += 500;
+                }
 
 
 
@@ -96,6 +101,14 @@ public class turbo : MonoBehaviour {
                 {
                     drivecam.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration -= 2;
                 }
+
+                //Speed Effects
+
+                if (DriveCar.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_FullTorqueOverAllWheels >= 10000)
+                {
+                    DriveCar.GetComponent<UnityStandardAssets.Vehicles.Car.CarController>().m_FullTorqueOverAllWheels -= 500;
+                }
+
             }
         }
 
@@ -125,8 +138,14 @@ public class turbo : MonoBehaviour {
                     AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxForce += 1;
                 }
 
+                if (AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxSpeed <= 45)
+                {
+                    AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxSpeed += 1;
+                }
 
               
+
+
 
 
             }
@@ -148,9 +167,14 @@ public class turbo : MonoBehaviour {
 
                 //Speed Effects
 
-                if (AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxForce >= 40)
+                if (AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxForce >= 35)
                 {
                     AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxForce -= 1;
+                }
+
+                if (AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxSpeed <= 435)
+                {
+                    AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxSpeed -= 1;
                 }
             }
         }
