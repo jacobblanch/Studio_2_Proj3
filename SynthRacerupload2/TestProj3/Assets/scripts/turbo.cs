@@ -4,96 +4,158 @@ using UnityEngine;
 
 public class turbo : MonoBehaviour {
 
-    //public GameObject turbopoint;
-    //public GameObject warpeffects;
-    //public GameObject leftbraketrail;
-    //public GameObject rightbraketrail;
+    private bool TURBOBOOL;
 
-    public GameObject cameraMain;
-    public GameObject playeranim;
-    public GameObject playerdriven;
+    private float DriveorCruise;
+    private bool Driving;
+    private bool Cruising;
 
-
+    public GameObject animcam;
+    public GameObject drivecam;
 
     private float Colourshiftvalue;
     private float GLitchIntensity;
 
-    private bool TURBOBOOL;
+
+    public GameObject AnimCar;
+    public GameObject DriveCar;
+
+    
 
     void Start ()
     {
-        //rightbraketrail.SetActive(false);
-        //leftbraketrail.SetActive(false);
+        DriveorCruise = PlayerPrefs.GetInt("MenuCHoice");
+
+        if (DriveorCruise == 1)
+        {
+            Driving = true;
+            Cruising = false;
+        }
+
+
+        if (DriveorCruise == 2)
+        {
+            Driving = false;
+            Cruising = true;
+        }
+        
     }
 	
 	void Update ()
     {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                TURBO();
-            }
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                NomoreTURBO();
-            }
-        
-           
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.LoadLevel("menu");
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+            TURBOBOOL = true;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+            TURBOBOOL = false;
+            }
 
+        //THE DRIVING SEGMENT
 
-        if (TURBOBOOL)
+        if (Driving)
         {
-            if (cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity <= 1.2f)
+            if (TURBOBOOL)
             {
-                cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity += 0.05f;
+
+                //CAMERA EFFECTS
+                if (drivecam.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity <= 1.2f)
+                {
+                    drivecam.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity += 0.05f;
+                }
+
+
+                if (drivecam.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration <= 19)
+                {
+                    drivecam.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration += 1;
+                }
+
+
+
+
+
             }
 
-
-            if (cameraMain.GetComponent< RetroAesthetics.RetroCameraEffect>().chromaticAberration <= 19)
+            else
             {
-                cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration += 1;
+
+                //CAMERA EFFECTS
+                if (drivecam.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity >= 0.5f)
+                {
+                    drivecam.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity -= 0.08f;
+                }
+
+
+                if (drivecam.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration >= 5)
+                {
+                    drivecam.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration -= 2;
+                }
             }
-
-
-
         }
 
-        else
+       //THE CRUISING SEGMENT
+
+       if (Cruising)
         {
-            if (cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity >= 0.5f)
+            if (TURBOBOOL)
             {
-                cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity -= 0.08f;
+
+                //CAMERA EFFECTS
+                if (animcam.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity <= 1.2f)
+                {
+                    animcam.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity += 0.05f;
+                }
+
+
+                if (animcam.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration <= 19)
+                {
+                    animcam.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration += 1;
+                }
+
+                //Speed Effects
+
+                if (AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxForce <= 45)
+                {
+                    AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxForce += 1;
+                }
+
+
+              
+
+
             }
 
-
-            if (cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration >= 5)
+            else
             {
-                cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration -= 2;
+
+                //CAMERA EFFECTS
+                if (animcam.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity >= 0.5f)
+                {
+                    animcam.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity -= 0.08f;
+                }
+
+
+                if (animcam.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration >= 5)
+                {
+                    animcam.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration -= 2;
+                }
+
+                //Speed Effects
+
+                if (AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxForce >= 40)
+                {
+                    AnimCar.GetComponent<UnitySteer.Behaviors.AutonomousVehicle>().MaxForce -= 1;
+                }
             }
         }
     }
 
 
-    void TURBO()
-    {
-        //rightbraketrail.SetActive(true);
-        //leftbraketrail.SetActive(true);
-        //  warpeffects.SetActive(true);
-        TURBOBOOL = true;
-        
-    }
-
-    void NomoreTURBO()
-    {
-        TURBOBOOL = false;
-        //rightbraketrail.SetActive(false);
-        //leftbraketrail.SetActive(false);
-      //  warpeffects.SetActive(false);
-      //  cameraMain.GetComponent<UnityStandardAssets.ImageEffects.BloomOptimized>().intensity = 0.5f;
-      //  cameraMain.GetComponent<RetroAesthetics.RetroCameraEffect>().chromaticAberration = 5;
-    }
+   
 }
